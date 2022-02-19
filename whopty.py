@@ -1,7 +1,6 @@
 from SimpleWebSocketServer import SimpleWebSocketServer, WebSocket
 import sys,re,os,requests
 from pytube import YouTube
-port = int(sys.argv[1])
 token=(input("your token: "))
 def song(x):
     r=requests.get(f"https://www.youtube.com/results?search_query={x}")
@@ -31,5 +30,5 @@ class wsc(WebSocket):
         print("ok :|")
     def handleClose(self):
         print("fuck off :|")
-server = SimpleWebSocketServer("127.0.0.1", port, wsc)
+server = SimpleWebSocketServer("127.0.0.1", 8080, wsc)
 server.serveforever()

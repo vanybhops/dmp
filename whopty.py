@@ -4,7 +4,7 @@ from pytube import YouTube
 token=(input("your token: "))
 def song(x):
     r=requests.get(f"https://www.youtube.com/results?search_query={x}")
-    url=re.findall('\watch\?v=[A-Za-z0-9_]+',r.text)
+    url=re.findall('\watch\?v=[A-Za-z0-9-_]+',r.text)
     print("https://www.youtube.com/"+url[0])
     yt = YouTube(str("https://www.youtube.com/"+url[0]))
     video = yt.streams.filter(only_audio=True).first()
